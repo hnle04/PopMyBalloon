@@ -282,7 +282,12 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var colors = [ 'aqua' , 'azure' , 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'cyan', 'fuchsia', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'khaki', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'moccasin', 'navy', 'olive', 'orange', 'orchid', 'peru', 'pink', 'plum', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+var colors = [ '1' ];
+for (var i = 1; i < 101; i++)
+{
+    colors.push(i.toString());
+}
+
 var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
 
 var recognition = new SpeechRecognition();
@@ -316,7 +321,13 @@ recognition.onresult = function(event) {
   var color = event.results[last][0].transcript;
 
   console.log('Result received: ' + color + '.');
-  bg.style.backgroundColor = color;
+  if (color === "one")
+  {
+      color = 1;
+  }
+//   bg.style.backgroundColor = color;
+    var isValidNumber = isNaN(color);
+    console.log('Valid: ' + isValidNumber);
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
