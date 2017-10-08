@@ -1,4 +1,4 @@
-totalNumPlayers = 0;
+totalNumPlayers = 1;
 
 function startGame() {
     toggle("game", "title");
@@ -37,6 +37,18 @@ pop = 0;
 
 function beginGame() {
     totalNumPlayers = Number(document.getElementById('numPlayers').value);
+
+    if (totalNumPlayers < 1)
+    {
+        document.getElementById("askNumPlayers").innerText = "Haha, very funny. So how many people are ACTUALLY playing?";
+        return;
+    }
+    else if (totalNumPlayers > 10)
+    {
+        document.getElementById("askNumPlayers").innerText = "Hmm, that may be too many people...so how many people are playing?";
+        return;
+    }
+
     toggle("actualGame", "setup");
 
     //begin the game
@@ -83,12 +95,13 @@ function popTheBalloon() {
 
 function resetGame() {
     toggle("setup", "actualGame");
-    totalNumPlayers = 0;
-    document.getElementById("numPlayers").value = 0;
+    totalNumPlayers = 1;
+    document.getElementById("numPlayers").value = 1;
 
     LB = 0;
     UB = 100;
     currentGuess = 0;
+    document.getElementById("guess").value = 0;
     pop = 0;
 
     document.getElementById("lowest").innerText = "Lowest: 0";
