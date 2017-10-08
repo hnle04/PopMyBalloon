@@ -55,7 +55,13 @@
         <button id="pickHarder" class="btn">
             Harder Level
         </button>
-        <p>Test voice recognition</p>
+        <p>Use a mike!</p>
+        <button id="useText" class="btn">
+            Use Text
+        </button>
+        <button id="useSpeech" class="btn">
+            Use Speech
+        </button>
         <button id="testVoice" class="btn">
             Test Speech Recognition
         </button>
@@ -108,12 +114,28 @@
             <h2 id="balloon"></h2>
 
             <div id="guessing">
-                <h2 id="playerCommand">Player X, what number do you guess?</h2>
-                <label id="guessErr">That's not a valid guess!</label>
-                <input type="number" id="playerGuess">
-                <button class="btn" type="submit" id="guess">
-                    Guess
-                </button>
+                <div id="textGuessing">
+                    <h2 id="playerCommand">Player X, what number do you guess?</h2>
+                    <label id="guessErr">That's not a valid guess!</label>
+                    <input type="number" id="playerGuess">
+                    <button class="btn" type="submit" id="guess">
+                        Guess
+                    </button>
+                </div>
+
+                <div id="speechGuessing">
+                    <h2 id="playerCommand-speech">Player X, are you ready?</h2>
+                    <h2 id="playerGuess-speech"></h2>
+                    <label id="guessErr-speech">That's not a valid guess!</label>
+                    <button class="btn" type="submit" id="ready">
+                        I'm ready!
+                    </button>
+                    <button class="btn" type="submit" id="speechErr">
+                        Try again
+                    </button>
+                </div>
+
+                
                 <button id="endGame" class="btn">
                     Back
                 </button>
