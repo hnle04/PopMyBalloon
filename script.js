@@ -16,9 +16,10 @@ pop = 0;
 // some transitions
 $(document).ready(function () {
     $("#startGame").click(function () {
-        resetGame();
         $("#title").fadeOut(800);
         setTimeout(function () {
+            resetGame();
+            toggle("setup", "actualGame");
             $("#game").fadeIn(1000);
         }, 1000);
 
@@ -47,6 +48,7 @@ $(document).ready(function () {
 
     $("#helpToGame").click(function () {
         resetGame();
+        toggle("setup", "actualGame");
         $("#help").fadeOut(800);
         setTimeout(function () {
             $("#game").fadeIn(1000);
@@ -79,11 +81,17 @@ $(document).ready(function () {
         totalNumPlayers = Number(document.getElementById('numPlayers').value);
 
         if (totalNumPlayers < 1) {
-            document.getElementById("askNumPlayers").innerText = "Haha, very funny. So how many people are ACTUALLY playing?";
+            document.getElementById("askNumPlayers").innerText = "Haha, aren't you soooo funny...";
+            setTimeout(function () {
+                document.getElementById("askNumPlayers").innerText = "How many people are playing?";
+            }, 1300);
             return;
         }
         else if (totalNumPlayers > 10) {
-            document.getElementById("askNumPlayers").innerText = "Hmm, that may be too many people...so how many people are playing?";
+            document.getElementById("askNumPlayers").innerText = "Hmm, that's too  many  people... ";
+            setTimeout(function () {
+                document.getElementById("askNumPlayers").innerText = "How many people are playing?";
+            }, 1300);
             return;
         }
 
