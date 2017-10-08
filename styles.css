@@ -28,6 +28,11 @@ body
     display: none;
 }
 
+#guessErr
+{
+    display: none;
+}
+
 div
 {
     text-align: center;

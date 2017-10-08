@@ -64,11 +64,21 @@ function popTheBalloon() {
     document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
     document.getElementById("guess").addEventListener("click", function() {
             currentGuess = Number(document.getElementById("playerGuess").value);
+            if (!isGuessValid(currentGuess))
+            {
+                return;
+            }
+            else
+            {
+                document.getElementById("guessErr").style.display = 'none';
+            }
+
             if (currentGuess === pop)
             {
                 //pop balloon
                 document.getElementById("balloon").innerText = "POP POP >:)";
                 toggle("gameOver", "guessing");
+                return;
             }
             else if (currentGuess < pop)
             {
@@ -91,6 +101,15 @@ function popTheBalloon() {
             }
             document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
         });
+}
+
+function isGuessValid(guess) {
+    if (currentGuess > UB || currentGuess < LB)
+    {
+        document.getElementById("guessErr").style.display = 'block';
+        return false;
+    }
+    return true;
 }
 
 function resetGame() {
