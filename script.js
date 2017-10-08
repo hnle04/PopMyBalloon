@@ -115,29 +115,39 @@ function playAgain() {
 $(document).ready(function() {
     $("#startGame").click(function() {
         resetGame();
-        $("#title").fadeOut(1000);
-        $("#game").fadeIn(2500);
+        $("#title").fadeOut(800);
+        setTimeout(function() {
+            $("#game").fadeIn(1000);
+        }, 1000);
+        
     });
 
     $("#showHelp").click(function() {
-        $("#title").fadeOut(1000);
-        $("#help").fadeIn(2500); 
+        $("#title").fadeOut(800);
+        setTimeout(function() {
+            $("#help").fadeIn(1000);
+        }, 1000); 
     });
 
     $("#gameToTitle").click(function() {
-        $("#game").fadeOut(1000);
-        $("#title").fadeIn(2500);  
+        $("#game").fadeOut(800);
+        setTimeout(function() {
+            $("#title").fadeIn(1000);
+        }, 1000);  
     });
 
     $("#helpToTitle").click(function() {
-        $("#help").fadeOut(1000);
-        $("#title").fadeIn(2500);
+        $("#help").fadeOut(800);
+        setTimeout(function() {
+            $("#title").fadeIn(1000);
+        }, 1000);
     });
 
     $("#helpToGame").click(function() {
         resetGame();
-        $("#help").fadeOut(1000);
-        $("#game").fadeIn(2500);
-        
+        $("#help").fadeOut(800);
+        setTimeout(function() {
+            $("#game").fadeIn(1000);
+        }, 1000);
     });
 });
