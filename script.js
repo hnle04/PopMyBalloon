@@ -154,7 +154,10 @@ $(document).ready(function () {
                 setTimeout(function () {
                     //pop balloon
                     $('#animateBalloon').hide("explode", {pieces: 16}, 500);
-                    document.getElementById("balloon").innerText = "POP POP >:)";
+                    setTimeout(function() {
+                        document.getElementById("balloon").innerText = "Player " + i + ", you lost!";
+                    }, 500);
+                    
                     toggle("gameOver", "guessing");
                     $('#guess').prop('disabled', false);
                     return;
@@ -214,6 +217,6 @@ $(document).ready(function () {
 
         document.getElementById("lowest").innerText = "Lowest: 0";
         document.getElementById("highest").innerText = "Highest: 100";
-        document.getElementById("balloon").innerText = "a balloon";
+        document.getElementById("balloon").innerText = "";
     }
 });
