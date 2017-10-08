@@ -1,3 +1,8 @@
+/*
+font-family: 'Comfortaa', cursive;
+font-family: 'Lora', serif;
+*/
+
 body
 {
     background-color: #ffccee;
@@ -6,11 +11,25 @@ body
 #title
 {
     display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -200px;
 }
 
 #game
 {
     display: none;
+}
+
+#setup
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -225px;
 }
 
 #help
@@ -23,14 +42,60 @@ body
     display: none;
 }
 
+#guessing
+{
+    margin-top: 170px;
+}
+
 #gameOver
 {
     display: none;
+    margin-top: 70px;
 }
 
 #guessErr
 {
     display: none;
+}
+
+#lowest
+{
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    text-align: left;
+    margin: 20px;
+    margin-right: 25%;
+}
+
+#highest
+{
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    text-align: right;
+    margin: 20px;
+    margin-left: 25%;
+}
+
+#level
+{
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+#settings
+{
+    display: none;
+}
+
+#settingsToTitle
+{
+    margin-top: 70px;
+}
+
+#pickEasy
+{
+    background: hsl(215,50%,65%);
 }
 
 div
@@ -41,4 +106,115 @@ div
 h1 
 {
     text-align: center;
+    font-family: 'Comfortaa', cursive;
+    margin: 15px 0;
+    margin-bottom: 25px;
 }
+
+h2
+{
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    margin: 15px 0;
+    margin-top: 50px;
+}
+
+h3
+{
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+p
+{
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    margin: 30px 20px;
+}
+
+input
+{
+    border-radius: 10px;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+    font-family: 'Lora', serif;
+    font-variant: bold;
+    font-size: 16px;
+}
+
+label
+{
+    font-family: 'Lora', serif;
+    font-size: 12px;
+}
+
+.btn
+{
+    font-family: 'Lora', serif;
+    border-radius: 10px;
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: solid black;
+    color: black;
+}
+
+/*
+Balloon animation
+*/
+.balloon {
+  display:inline-block;
+   width:120px;
+  height:145px;
+  background:hsl(215,50%,65%);
+  border-radius:80%;
+  position:relative;
+  box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+  margin:20px 30px;
+  transition:transform 0.5s ease;
+  z-index:10;
+  animation:balloons 4s ease-in-out infinite;
+  transform-origin:bottom center;
+}
+
+@keyframes balloons {
+  0%,100%{ transform:translateY(0) rotate(-4deg); }
+  50%{ transform:translateY(-25px) rotate(4deg); }
+}
+
+
+.balloon:before {
+  content:"▲";
+  font-size:20px;
+  color:hsl(215,30%,50%);
+  display:block;
+  text-align:center;
+  width:100%;
+  position:absolute;
+  bottom:-12px;
+  z-index:-100;
+}
+
+.balloonString {
+ display:inline-block; top:153px;
+  position:absolute;
+  height:120px;
+  width:1px;
+  margin:0 auto;
+  content:"";
+  background:rgba(0,0,0,0.2); 
+  z-index: -200;
+}
+
+.balloon{ 
+    background:hsl(245,40%,65%); 
+    animation-duration:3.5s; 
+}
+
+.balloon:before { 
+    color:hsl(245,40%,65%); 
+}
+

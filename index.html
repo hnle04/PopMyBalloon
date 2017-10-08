@@ -9,8 +9,11 @@
     <!--<link rel="icon" type="image/x-icon" href="chen.ico">-->
 
     <link type="text/css" rel="stylesheet" href="styles.css" />
-    
-
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lora|Manuale|Roboto+Slab|Slabo+27px" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <!-- bootstrap and jquery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -31,61 +34,107 @@
     <!--title page-->
     <div id="title">
         <h1>Don't pop my balloon!</h1>
-        <button class="btn" onclick="startGame()">
+        <button id="startGame" class="btn">
             Start 
         </button>
-        <button class="btn" onclick="showHelp()">
+        <button id="showHelp" class="btn">
             Help
+        </button>
+        <button id="showSettings" class="btn">
+            Settings
+        </button>
+    </div>
+
+    <!--settings screen-->
+    <div id="settings">
+        <h2>Settings</h2>
+        <p>Pick a level</p>
+        <button id="pickEasy" class="btn">
+            Easy Level
+        </button>
+        <button id="pickHarder" class="btn">
+            Harder Level
+        </button>
+        <button id="settingsToTitle" class="btn">
+            Back
         </button>
     </div>
 
     <!--help screen-->
     <div id="help">
-        <h2>what am i doing</h2>
-        <button class="btn" onclick="helpToGame()">
+        <h2>What am I doing?</h2>
+        <p>
+            Welcome to PPMF, the game where you DON'T want to guess the lucky number!
+            We have two different levels for you, and Easy Level and a Harder Level. In both levels,
+            a random number will be chosen, and you and your friends try to not guess the number. The range of numbers
+            you can guess gets smaller every turn (the lowest and highest numbers you can guess are at the top of the screen),
+            and when that poor, unfortunate soul guesses the number the balloon pops!
+        </p>
+        <h3> Easy Level </h3>
+        <p>
+            In the Easy Level, all the players can guess any number, as long as they are between the lowest and highest number.
+            The starting range of numbers is 1 to 100.
+        </p>
+        <h3> Harder Level </h3>
+        <p>
+            In the Harder Level, you can only guess numbers that are between the lowest number and 12 plus the lowest number, or numbers
+            that are between the highest number and the highest number minus 12. The starting range of numbers is 1 to 84.
+        </p>
+        <button id="helpToGame" class="btn">
             Start
         </button>
-        <button class="btn" onclick="helpToTitle()">
+        <button id="helpToTitle" class="btn">
             Back
         </button>
     </div>
 
     <!--actual game-->
     <div id="game">
-        <h2>the game</h2>
-
         <div id="actualGame">
-            <h3 id="lowest">Lowest: 0</h3>
-            <h3 id="highest">Highest: 100</h3>
-            <h2 id="balloon">a balloon</h2>
+            <h3>
+                <span id="lowest">Lowest: 0</span>
+                <span id="level">Easy</span>
+                <span id="highest">Highest: 100</span>
+            </h3>
+            
+            <div id="animateBalloon" class="balloon">
+                <div id="balloonString" class="balloonString"></div>
+            </div>
+            
+            <h2 id="balloon"></h2>
 
             <div id="guessing">
                 <h2 id="playerCommand">Player X, what number do you guess?</h2>
                 <label id="guessErr">That's not a valid guess!</label>
-                <input type="number" class="form-control" id="playerGuess">
+                <input type="number" id="playerGuess">
                 <button class="btn" type="submit" id="guess">
                     Guess
+                </button>
+                <button id="endGame" class="btn">
+                    Back
                 </button>
             </div>
 
             <div id="gameOver">
-                <button class="btn" id="playAgain" onclick="playAgain()">
+                <button class="btn" id="playAgain">
                     Play Again
+                </button>
+                <button id="returnToMenu" class="btn">
+                    Back
                 </button>
             </div>
         </div>
 
         <div id="setup">
             <h2 id="askNumPlayers">How many people are playing?</h2>
-            <input type="number" class="form-control" id="numPlayers" min="1" max="10">
-            <button class="btn" id="begin" type="submit" onclick="beginGame()">
+            <input type="number" id="numPlayers" min="1" max="10">
+            <button class="btn" id="begin" type="submit">
                 Begin
             </button>
+            <button id="gameToTitle" class="btn">
+                Back
+            </button>
         </div>
-
-        <button class="btn" onclick="gameToTitle()">
-            Back
-        </button>
         
     </div>
 
