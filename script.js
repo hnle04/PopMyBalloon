@@ -449,13 +449,15 @@ $(document).ready(function () {
         $('#animateBalloon').show();
 
         document.getElementById("lowest").innerText = "Lowest: 0";
-        document.getElementById("highest").innerText = "Highest: 100";
+        
         document.getElementById("balloon").innerText = "";
         if (isEasy) {
             document.getElementById('level').innerText = "Easy";
+            document.getElementById("highest").innerText = "Highest: 100";
         }
         else {
             document.getElementById('level').innerText = 'Harder';
+            document.getElementById("highest").innerText = "Highest: 84";
         }
     }
 
