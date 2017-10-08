@@ -98,6 +98,26 @@ body
     background: hsl(215,50%,65%);
 }
 
+#useText
+{
+    background: hsl(215,50%,65%);
+}
+
+#speechErr
+{
+    display: none;
+}
+
+#guessErr-speech
+{
+    display:none;
+}
+
+#speechGuessing
+{
+    display: none;
+}
+
 div
 {
     text-align: center;
