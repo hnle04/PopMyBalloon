@@ -267,5 +267,13 @@ $(document).ready(function () {
         document.getElementById("lowest").innerText = "Lowest: 0";
         document.getElementById("highest").innerText = "Highest: 100";
         document.getElementById("balloon").innerText = "";
+        if (isEasy)
+        {
+            document.getElementById('level').innerText = "Easy";
+        }
+        else
+        {
+            document.getElementById('level').innerText = 'Harder';
+        }
     }
 });
