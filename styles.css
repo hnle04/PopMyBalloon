@@ -18,6 +18,16 @@ body
     display: none;
 }
 
+#actualGame
+{
+    display: none;
+}
+
+#gameOver
+{
+    display: none;
+}
+
 div
 {
     text-align: center;

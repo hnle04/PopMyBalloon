@@ -16,10 +16,12 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+        <!--
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+        -->
 </head>
 
 <body>
@@ -40,6 +42,9 @@
     <!--help screen-->
     <div id="help">
         <h2>what am i doing</h2>
+        <button class="btn" onclick="helpToGame()">
+            Start
+        </button>
         <button class="btn" onclick="helpToTitle()">
             Back
         </button>
@@ -48,9 +53,38 @@
     <!--actual game-->
     <div id="game">
         <h2>the game</h2>
+
+        <div id="actualGame">
+            <h3 id="lowest">Lowest: 0</h3>
+            <h3 id="highest">Highest: 100</h3>
+            <h2 id="balloon">a balloon</h2>
+
+            <div id="guessing">
+                <h2 id="playerCommand">Player X, what number do you guess?</h2>
+                <input type="number" class="form-control" id="playerGuess">
+                <button class="btn" type="submit" id="guess">
+                    Guess
+                </button>
+            </div>
+
+            <div id="gameOver">
+                <button class="btn" id="playAgain" onclick="playAgain()">
+                    Play Again
+                </button>
+            </div>
+        </div>
+
+        <div id="setup">
+            <input type="number" class="form-control" id="numPlayers">
+            <button class="btn" id="begin" type="submit" onclick="beginGame()">
+                Begin
+            </button>
+        </div>
+
         <button class="btn" onclick="gameToTitle()">
             Back
         </button>
+        
     </div>
 
 </body>
