@@ -9,7 +9,8 @@
     <!--<link rel="icon" type="image/x-icon" href="chen.ico">-->
 
     <link type="text/css" rel="stylesheet" href="styles.css" />
-    
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lora|Manuale|Roboto+Slab|Slabo+27px" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- bootstrap and jquery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -31,10 +32,10 @@
     <!--title page-->
     <div id="title">
         <h1>Don't pop my balloon!</h1>
-        <button class="btn" onclick="startGame()">
+        <button id="startGame" class="btn">
             Start 
         </button>
-        <button class="btn" onclick="showHelp()">
+        <button id="showHelp" class="btn">
             Help
         </button>
     </div>
@@ -42,18 +43,16 @@
     <!--help screen-->
     <div id="help">
         <h2>what am i doing</h2>
-        <button class="btn" onclick="helpToGame()">
+        <button id="helpToGame" class="btn">
             Start
         </button>
-        <button class="btn" onclick="helpToTitle()">
+        <button id="helpToTitle" class="btn">
             Back
         </button>
     </div>
 
     <!--actual game-->
     <div id="game">
-        <h2>the game</h2>
-
         <div id="actualGame">
             <h3 id="lowest">Lowest: 0</h3>
             <h3 id="highest">Highest: 100</h3>
@@ -62,9 +61,12 @@
             <div id="guessing">
                 <h2 id="playerCommand">Player X, what number do you guess?</h2>
                 <label id="guessErr">That's not a valid guess!</label>
-                <input type="number" class="form-control" id="playerGuess">
+                <input type="number" id="playerGuess">
                 <button class="btn" type="submit" id="guess">
                     Guess
+                </button>
+                <button id="endGame" class="btn">
+                    Back
                 </button>
             </div>
 
@@ -72,20 +74,22 @@
                 <button class="btn" id="playAgain" onclick="playAgain()">
                     Play Again
                 </button>
+                <button id="returnToMenu" class="btn">
+                    Back
+                </button>
             </div>
         </div>
 
         <div id="setup">
             <h2 id="askNumPlayers">How many people are playing?</h2>
-            <input type="number" class="form-control" id="numPlayers" min="1" max="10">
+            <input type="number" id="numPlayers" min="1" max="10">
             <button class="btn" id="begin" type="submit" onclick="beginGame()">
                 Begin
             </button>
+            <button id="gameToTitle" class="btn">
+                Back
+            </button>
         </div>
-
-        <button class="btn" onclick="gameToTitle()">
-            Back
-        </button>
         
     </div>
 

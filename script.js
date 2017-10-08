@@ -1,27 +1,5 @@
 totalNumPlayers = 1;
 
-function startGame() {
-    toggle("game", "title");
-    resetGame();
-}
-
-function showHelp() {
-    toggle("help", "title");
-}
-
-function gameToTitle() {
-    toggle("title", "game");
-}
-
-function helpToTitle() {
-    toggle("title", "help");
-}
-
-function helpToGame() {
-    toggle("game", "help");
-    resetGame();
-}
-
 function toggle(id1, id2) {
     let x = document.getElementById(id1);
     let y = document.getElementById(id2);
@@ -132,3 +110,34 @@ function resetGame() {
 function playAgain() {
     resetGame();
 }
+
+// some cool effects
+$(document).ready(function() {
+    $("#startGame").click(function() {
+        resetGame();
+        $("#title").fadeOut(1000);
+        $("#game").fadeIn(2500);
+    });
+
+    $("#showHelp").click(function() {
+        $("#title").fadeOut(1000);
+        $("#help").fadeIn(2500); 
+    });
+
+    $("#gameToTitle").click(function() {
+        $("#game").fadeOut(1000);
+        $("#title").fadeIn(2500);  
+    });
+
+    $("#helpToTitle").click(function() {
+        $("#help").fadeOut(1000);
+        $("#title").fadeIn(2500);
+    });
+
+    $("#helpToGame").click(function() {
+        resetGame();
+        $("#help").fadeOut(1000);
+        $("#game").fadeIn(2500);
+        
+    });
+});
