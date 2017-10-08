@@ -76,6 +76,21 @@ body
     margin-left: 25%;
 }
 
+#settings
+{
+    display: none;
+}
+
+#settingsToTitle
+{
+    margin-top: 70px;
+}
+
+#pickEasy
+{
+    background: hsl(215,50%,65%);
+}
+
 div
 {
     text-align: center;
@@ -94,6 +109,19 @@ h2
     font-family: 'Comfortaa', cursive;
     margin: 15px 0;
     margin-top: 50px;
+}
+
+h3
+{
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+
+p
+{
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    margin: 30px 20px;
 }
 
 input

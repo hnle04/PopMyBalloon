@@ -1,4 +1,6 @@
 totalNumPlayers = 1;
+isEasy = true;
+isHard = false;
 
 function toggle(id1, id2) {
     let x = document.getElementById(id1);
@@ -81,6 +83,34 @@ $(document).ready(function () {
         }, 1000);
     });
 
+    $('#showSettings').click(function() {
+        $("#title").fadeOut(800);
+        setTimeout(function () {
+            $("#settings").fadeIn(1000);
+        }, 1000);
+    });
+
+    //choosing settings
+    $('#pickEasy').click(function() {
+        $('#pickEasy').css('background', 'hsl(215,50%,65%)');
+        $('#pickHarder').css('background', '#eee');
+        isEasy = true;
+        isHard = false;
+    });
+    $('#pickHarder').click(function() {
+        $('#pickHarder').css('background', 'hsl(215,50%,65%)');
+        $('#pickEasy').css('background', '#eee');
+        isEasy = false;
+        isHard = true;
+    });
+
+    $('#settingsToTitle').click(function() {
+        $("#settings").fadeOut(800);
+        setTimeout(function () {
+            $("#title").fadeIn(1000);
+        }, 1000);
+    });
+
     $("#begin").click(function () {
         totalNumPlayers = Number(document.getElementById('numPlayers').value);
 
@@ -105,10 +135,20 @@ $(document).ready(function () {
         }, 1000);
 
         //begin the game
-        LB = 0;
-        UB = 100;
-        //pop = Math.floor(Math.random() * 101);
-        pop = 1;
+        if (isEasy)
+        {
+            LB = 0;
+            UB = 100;
+            //pop = Math.floor(Math.random() * 101);
+            pop = 1;
+        }
+        else
+        {
+            LB = 0;
+            UB = 84;
+            //pop = Math.floor(Math.random() * 85);
+            pop = 1;
+        }
         popTheBalloon();
     });
 
@@ -120,7 +160,7 @@ $(document).ready(function () {
             $('#guess').prop('disabled', true);
             currentGuess = Number(document.getElementById("playerGuess").value);
             if (!isGuessValid(currentGuess)) {
-                $('#guess').prop('disabled', true);
+                $('#guess').prop('disabled', false);
                 return;
             }
             else {
@@ -194,6 +234,15 @@ $(document).ready(function () {
         if (currentGuess > UB || currentGuess < LB) {
             document.getElementById("guessErr").style.display = 'block';
             return false;
+        }
+
+        if (isHard)
+        {
+            if(currentGuess > LB+12 && currentGuess < UB-12)
+            {
+                document.getElementById("guessErr").style.display = 'block';
+                return false;
+            }
         }
         return true;
     }
