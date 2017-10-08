@@ -112,6 +112,8 @@ $(document).ready(function () {
         let i = 1;
         document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
         document.getElementById("guess").addEventListener("click", function () {
+            
+            $('#guess').prop('disabled', true);
             currentGuess = Number(document.getElementById("playerGuess").value);
             if (!isGuessValid(currentGuess)) {
                 return;
@@ -120,24 +122,30 @@ $(document).ready(function () {
                 document.getElementById("guessErr").style.display = 'none';
             }
 
-            if (currentGuess === pop) {
-                //pop balloon
-                document.getElementById("balloon").innerText = "POP POP >:)";
-                toggle("gameOver", "guessing");
-                return;
-            }
-            else if (currentGuess < pop) {
-                LB = currentGuess;
-                document.getElementById("lowest").innerText = "Lowest: " + LB;
-                i++;
-                //inflate balloon
-            }
-            else if (currentGuess > pop) {
-                UB = currentGuess;
-                document.getElementById("highest").innerText = "Highest: " + UB;
-                i++;
-                //inflate balloon
-            }
+            setTimeout(function () {
+                if (currentGuess === pop) {
+                    //pop balloon
+                    document.getElementById("balloon").innerText = "POP POP >:)";
+                    toggle("gameOver", "guessing");
+                    $('#guess').prop('disabled', false);
+                    return;
+                }
+                else if (currentGuess < pop) {
+                    LB = currentGuess;
+                    document.getElementById("lowest").innerText = "Lowest: " + LB;
+                    i++;
+                    $('#guess').prop('disabled', false);
+                    //$("div").animate({width: '140px', height: '170px'});
+                    //inflate balloon
+                }
+                else if (currentGuess > pop) {
+                    UB = currentGuess;
+                    document.getElementById("highest").innerText = "Highest: " + UB;
+                    i++;
+                    $('#guess').prop('disabled', false);
+                    //inflate balloon
+                }
+            }, 2000);
 
             if (i > totalNumPlayers) {
                 i = 1;
