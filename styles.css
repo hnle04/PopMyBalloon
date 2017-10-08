@@ -1,0 +1,44 @@
+body
+{
+    background-color: #ffccee;
+}
+
+#title
+{
+    display: block;
+}
+
+#game
+{
+    display: none;
+}
+
+#help
+{
+    display: none;
+}
+
+#actualGame
+{
+    display: none;
+}
+
+#gameOver
+{
+    display: none;
+}
+
+#guessErr
+{
+    display: none;
+}
+
+div
+{
+    text-align: center;
+}
+
+h1 
+{
+    text-align: center;
+}
