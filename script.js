@@ -112,45 +112,60 @@ $(document).ready(function () {
         let i = 1;
         document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
         document.getElementById("guess").addEventListener("click", function () {
-            
+
             $('#guess').prop('disabled', true);
             currentGuess = Number(document.getElementById("playerGuess").value);
             if (!isGuessValid(currentGuess)) {
+                $('#guess').prop('disabled', true);
                 return;
             }
             else {
                 document.getElementById("guessErr").style.display = 'none';
             }
 
-            setTimeout(function () {
-                if (currentGuess === pop) {
+            if (currentGuess === pop) {
+                setTimeout(function () {
                     //pop balloon
                     document.getElementById("balloon").innerText = "POP POP >:)";
                     toggle("gameOver", "guessing");
                     $('#guess').prop('disabled', false);
                     return;
-                }
-                else if (currentGuess < pop) {
+                }, 2000);
+            }
+            else if (currentGuess < pop) {
+                setTimeout(function () {
                     LB = currentGuess;
                     document.getElementById("lowest").innerText = "Lowest: " + LB;
                     i++;
                     $('#guess').prop('disabled', false);
-                    //$("div").animate({width: '140px', height: '170px'});
-                    //inflate balloon
-                }
-                else if (currentGuess > pop) {
+                    if (i > totalNumPlayers) {
+                        i = 1;
+                    }
+                    document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
+                }, 2000);
+
+                //$("div").animate({width: '140px', height: '170px'});
+                //inflate balloon
+            }
+            else if (currentGuess > pop) {
+                setTimeout(function () {
                     UB = currentGuess;
                     document.getElementById("highest").innerText = "Highest: " + UB;
                     i++;
                     $('#guess').prop('disabled', false);
-                    //inflate balloon
-                }
-            }, 2000);
+                    if (i > totalNumPlayers) {
+                        i = 1;
+                    }
+                    document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
+                }, 2000);
 
-            if (i > totalNumPlayers) {
-                i = 1;
+                //inflate balloon
             }
-            document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
+
+            // if (i > totalNumPlayers) {
+            //     i = 1;
+            // }
+            // document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
         });
     }
 
