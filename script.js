@@ -107,8 +107,8 @@ $(document).ready(function () {
         //begin the game
         LB = 0;
         UB = 100;
-        pop = Math.floor(Math.random() * 101);
-
+        //pop = Math.floor(Math.random() * 101);
+        pop = 1;
         popTheBalloon();
     });
 
@@ -153,6 +153,7 @@ $(document).ready(function () {
             if (currentGuess === pop) {
                 setTimeout(function () {
                     //pop balloon
+                    $('#animateBalloon').hide("explode", {pieces: 16}, 500);
                     document.getElementById("balloon").innerText = "POP POP >:)";
                     toggle("gameOver", "guessing");
                     $('#guess').prop('disabled', false);
@@ -208,6 +209,8 @@ $(document).ready(function () {
         bHeight = 145;
         sTop = 153;
         sHeight = 120;
+
+        $('#animateBalloon').show();
 
         document.getElementById("lowest").innerText = "Lowest: 0";
         document.getElementById("highest").innerText = "Highest: 100";
