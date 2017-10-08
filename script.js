@@ -446,6 +446,24 @@ $(document).ready(function () {
         sTop = 153;
         sHeight = 120;
 
+        $("#animateBalloon").animate({
+            width: '120px',
+            height: '145px'
+        }, {
+                duration: 500,
+                queue: false,
+                complete: function () { /* Animation complete */ }
+            });
+
+        $(".balloonString").animate({
+            top: '153px',
+            height: '120px'
+        }, {
+                duration: 500,
+                queue: false,
+                complete: function () { /* Animation complete */ }
+            });
+
         $('#animateBalloon').show();
 
         document.getElementById("lowest").innerText = "Lowest: 0";
