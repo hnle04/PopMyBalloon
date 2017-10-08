@@ -15,7 +15,7 @@ pop = 0;
 bWidth = 120;
 bHeight = 145;
 sTop = 153;
-sHeight = 250;
+sHeight = 120;
 
 // some transitions
 $(document).ready(function () {
@@ -130,7 +130,7 @@ $(document).ready(function () {
             bWidth += 10;
             bHeight += 10;
             sTop += 10;
-            sHeight -= 20;
+            sHeight -= 5;
 
             $("#animateBalloon").animate({
                 width: bWidth + 'px',
@@ -170,9 +170,6 @@ $(document).ready(function () {
                     }
                     document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
                 }, 2000);
-
-                //$("div").animate({width: '140px', height: '170px'});
-                //inflate balloon
             }
             else if (currentGuess > pop) {
                 setTimeout(function () {
@@ -185,8 +182,6 @@ $(document).ready(function () {
                     }
                     document.getElementById("playerCommand").innerText = "Player " + i + ", what number do you guess?";
                 }, 2000);
-
-                //inflate balloon
             }
         });
     }
@@ -212,7 +207,7 @@ $(document).ready(function () {
         bWidth = 120;
         bHeight = 145;
         sTop = 153;
-        sHeight = 250;
+        sHeight = 120;
 
         document.getElementById("lowest").innerText = "Lowest: 0";
         document.getElementById("highest").innerText = "Highest: 100";

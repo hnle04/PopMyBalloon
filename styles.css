@@ -163,7 +163,7 @@ Balloon animation
 .balloonString {
  display:inline-block; top:153px;
   position:absolute;
-  height:250px;
+  height:120px;
   width:1px;
   margin:0 auto;
   content:"";
